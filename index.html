@@ -1,392 +1,340 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<!-- ========================================================= -->
+<!-- ========================= HEAD ========================== -->
+<!-- ========================================================= -->
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>Data Scientist Portfolio – Viswanath Gadde</title>
   <meta name="description" content="Portfolio of a Data Scientist: projects, skills, experience, and contact." />
+
+  <!-- ===================== STYLES ===================== -->
   <style>
     :root{
       --bg:#ffffff;
       --bg-alt:#f7f9fc;
-      --text:#0f172a; /* slate-900 */
-      --muted:#475569; /* slate-600 */
-      --primary:#2563eb; /* blue-600 */
-      --primary-weak:#dbeafe; /* blue-100 */
+      --text:#0f172a;
+      --muted:#475569;
+      --primary:#2563eb;
+      --primary-weak:#dbeafe;
       --card:#ffffff;
-      --border:#e5e7eb; /* gray-200 */
+      --border:#e5e7eb;
       --shadow:0 10px 25px rgba(2,6,23,.06);
       --radius:18px;
     }
+
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;color:var(--text);background:var(--bg);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,"Helvetica Neue",Arial,"Apple Color Emoji","Segoe UI Emoji"}
+    html,body{
+      margin:0;padding:0;
+      color:var(--text);
+      background:var(--bg);
+      font:16px/1.6 system-ui;
+    }
+
     a{color:var(--primary);text-decoration:none}
     a:hover{text-decoration:underline}
-    .container{max-width:1100px;margin:0 auto;padding:28px}
-    header.nav{
-      position:sticky;top:0;background:rgba(255,255,255,.8);backdrop-filter:saturate(180%) blur(10px);
-      border-bottom:1px solid var(--border); z-index:50
+
+    .container{max-width:1100px;margin:auto;padding:28px}
+
+    /* ===== RAW CODE SECTION DIVIDER ===== */
+    hr.section-break{
+      border:none;
+      border-top:1px solid var(--border);
+      margin:56px 0;
     }
-    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 28px}
-    .brand{font-weight:800;letter-spacing:.3px}
-    .nav-links{display:flex;gap:18px;flex-wrap:wrap}
+
+    /* ===== NAV ===== */
+    header.nav{
+      position:sticky;
+      top:0;
+      background:rgba(255,255,255,.8);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--border);
+      z-index:50;
+    }
+
+    .nav-inner{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .brand{font-weight:800}
+    .nav-links{display:flex;gap:18px}
     .nav-links a{color:var(--muted);font-weight:600}
-    .chip{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid var(--border);border-radius:999px;background:var(--bg);color:var(--muted);font-weight:600}
-    .chip svg{width:16px;height:16px}
 
-    /* Hero */
-    .hero{padding:64px 0;}
-    .hero-wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center}
-    .hero h1{font-size:42px;line-height:1.15;margin:0 0 12px;font-weight:900}
-    .hero p{color:var(--muted);margin:0 0 16px}
-    .hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
-    .btn{border-radius:12px;padding:12px 16px;border:1px solid var(--border);background:var(--bg);font-weight:700}
-    .btn.primary{background:var(--primary);color:#fff;border-color:var(--primary)}
-    .btn.ghost{background:var(--bg);color:var(--primary)}
-    .hero-card{background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
-    .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
-    .kpi{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px;text-align:center}
-    .kpi b{font-size:20px;display:block}
+    /* ===== HERO ===== */
+    .hero{padding:64px 0}
+    .hero-wrap{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:28px;
+      align-items:center;
+    }
 
+    .hero h1{font-size:42px;margin-bottom:12px}
+    .hero p{color:var(--muted)}
+
+    .hero-card{
+      background:var(--bg-alt);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:20px;
+    }
+
+    /* ===== SECTIONS ===== */
     section{padding:36px 0}
-    .section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
-    .section-title h2{margin:0;font-size:28px}
+
+    .section-title{
+      display:flex;
+      justify-content:space-between;
+      margin-bottom:16px;
+    }
+
     .section-sub{color:var(--muted)}
 
-    /* About */
-    .about{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
+    /* ===== ABOUT ===== */
+    .about{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+    }
 
-    /* Skills */
-    .skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-    .skill{border:1px solid var(--border);border-radius:12px;padding:12px;font-weight:700;background:var(--bg-alt)}
-    .badges{display:flex;gap:8px;flex-wrap:wrap}
-    .badge{border:1px dashed var(--border);padding:6px 10px;border-radius:999px;color:var(--muted);font-weight:700;background:#fff}
+    .card{
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow:var(--shadow);
+    }
 
-    /* Projects */
-    .filters{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 18px}
-    .filters button{border:1px solid var(--border);padding:8px 12px;border-radius:999px;background:#fff;color:var(--muted);font-weight:700;cursor:pointer}
-    .filters button.active{background:var(--primary-weak);color:var(--primary);border-color:var(--primary)}
-    .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .project{display:flex;flex-direction:column;gap:10px;border:1px solid var(--border);border-radius:16px;overflow:hidden;background:#fff;box-shadow:var(--shadow)}
-    .project .thumb{height:170px;background:linear-gradient(135deg,#e0e7ff,#f0f9ff)}
+    /* ===== SKILLS ===== */
+    .skills-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:12px;
+    }
+
+    .skill{
+      border:1px solid var(--border);
+      border-radius:12px;
+      padding:12px;
+      background:var(--bg-alt);
+      font-weight:700;
+    }
+
+    /* ===== PROJECTS ===== */
+    .filters{display:flex;gap:8px;margin-bottom:18px}
+    .filters button{
+      border:1px solid var(--border);
+      padding:8px 12px;
+      border-radius:999px;
+      background:#fff;
+      cursor:pointer;
+    }
+
+    .filters button.active{
+      background:var(--primary-weak);
+      color:var(--primary);
+    }
+
+    .projects{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+    }
+
+    .project{
+      border:1px solid var(--border);
+      border-radius:16px;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+    }
+
+    .project .thumb{height:160px;background:#eef2ff}
     .project .body{padding:14px}
-    .project h3{margin:0 0 6px;font-size:18px}
-    .project p{margin:0;color:var(--muted)}
-    .project .meta{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding:14px;border-top:1px solid var(--border);background:var(--bg-alt)}
-    .pill{padding:4px 10px;border-radius:999px;background:var(--primary-weak);color:var(--primary);font-weight:700;font-size:12px}
+    .project .meta{
+      padding:14px;
+      border-top:1px solid var(--border);
+      background:var(--bg-alt);
+      display:flex;
+      justify-content:space-between;
+    }
 
-    /* Experience */
+    /* ===== EXPERIENCE ===== */
     .timeline{display:grid;gap:14px}
     .item{display:grid;grid-template-columns:120px 1fr;gap:12px}
-    .item .when{color:var(--muted);font-weight:700}
-    .item .what{border:1px solid var(--border);border-radius:12px;padding:12px;background:#fff}
-    .item .what h4{margin:4px 0}
 
-    /* Contact */
+    /* ===== CONTACT ===== */
     .contact{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    .contact .card a{font-weight:800}
 
-    footer{padding:30px 0;border-top:1px solid var(--border);color:var(--muted);text-align:center}
-
-    /* Responsive */
-    @media (max-width: 980px){
-      .hero-wrap{grid-template-columns:1fr}
-      .about{grid-template-columns:1fr}
-      .skills-grid{grid-template-columns:repeat(2,1fr)}
-      .projects{grid-template-columns:1fr 1fr}
-      .contact{grid-template-columns:1fr}
-    }
-    @media (max-width: 640px){
-      .projects{grid-template-columns:1fr}
-      .kpis{grid-template-columns:1fr 1fr}
+    footer{
+      border-top:1px solid var(--border);
+      padding:30px 0;
+      text-align:center;
+      color:var(--muted);
     }
   </style>
 </head>
+
 <body>
-  <!-- Nav -->
-  <header class="nav">
-    <div class="nav-inner container">
-      <div class="brand">Viswanath Gadde</div>
-      <nav class="nav-links">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
 
-  <!-- Hero -->
-  <section class="hero container">
-    <div class="hero-wrap">
+<!-- ========================================================= -->
+<!-- ======================= NAV ============================= -->
+<!-- ========================================================= -->
+<header class="nav">
+  <div class="nav-inner container">
+    <div class="brand">Viswanath Gadde</div>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<hr class="section-break">
+
+<!-- ========================================================= -->
+<!-- ======================= HERO ============================ -->
+<!-- ========================================================= -->
+<section class="hero container">
+  <div class="hero-wrap">
+    <div>
+      <h1>Aspiring Data Scientist</h1>
+      <p>Building machine learning solutions that create real impact.</p>
+    </div>
+    <div class="hero-card">
+      <h3>What I Do</h3>
+      <p>ML · NLP · Time Series · Dashboards</p>
+    </div>
+  </div>
+</section>
+
+<hr class="section-break">
+
+<!-- ========================================================= -->
+<!-- ======================= ABOUT =========================== -->
+<!-- ========================================================= -->
+<section id="about" class="container">
+  <div class="section-title">
+    <h2>About</h2>
+    <span class="section-sub">Who I am</span>
+  </div>
+
+  <div class="about">
+    <div class="card">
+      <p>
+        I’m an aspiring Data Scientist who builds end-to-end ML projects,
+        from data cleaning to deployment, focusing on clarity and impact.
+      </p>
+    </div>
+  </div>
+</section>
+
+<hr class="section-break">
+
+<!-- ========================================================= -->
+<!-- ======================= SKILLS ========================== -->
+<!-- ========================================================= -->
+<section id="skills" class="container">
+  <div class="section-title">
+    <h2>Skills</h2>
+  </div>
+
+  <div class="skills-grid">
+    <div class="skill">Python · Pandas · NumPy</div>
+    <div class="skill">Scikit-learn · XGBoost</div>
+    <div class="skill">TensorFlow · PyTorch</div>
+    <div class="skill">SQL · Power BI · Tableau</div>
+  </div>
+</section>
+
+<hr class="section-break">
+
+<!-- ========================================================= -->
+<!-- ======================= PROJECTS ======================= -->
+<!-- ========================================================= -->
+<section id="projects" class="container">
+  <div class="section-title">
+    <h2>Projects</h2>
+  </div>
+
+  <!-- ===== PROJECT FILTERS ===== -->
+  <div class="filters">
+    <button class="active" data-filter="all">All</button>
+    <button data-filter="ml">ML</button>
+    <button data-filter="nlp">NLP</button>
+    <button data-filter="timeseries">Time Series</button>
+  </div>
+
+  <!-- ===== PROJECT GRID ===== -->
+  <div class="projects">
+    <article class="project" data-tags="ml">
+      <div class="thumb"></div>
+      <div class="body">
+        <h3>Titanic Survival Prediction</h3>
+        <p>End-to-end ML pipeline with 81% accuracy.</p>
+      </div>
+      <div class="meta">
+        <span>ML</span>
+      </div>
+    </article>
+  </div>
+</section>
+
+<hr class="section-break">
+
+<!-- ========================================================= -->
+<!-- ======================= EXPERIENCE ===================== -->
+<!-- ========================================================= -->
+<section id="experience" class="container">
+  <div class="section-title">
+    <h2>Experience</h2>
+  </div>
+
+  <div class="timeline">
+    <div class="item">
+      <div class="when">2023–Now</div>
       <div>
-        <span class="chip" title="Open to Opportunities">
-          <!-- briefcase icon -->
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><path d="M2 13h20"/></svg>
-          Open to roles
-        </span>
-        <h1>Aspiring Data Scientist building machine learning solutions that make real impact</h1>
-        <p>Blend of <strong>statistics</strong>, <strong>ML engineering</strong>, and <strong>storytelling</strong>. I turn raw data into products and insights that drive impact.</p>
-        <div class="cta">
-          <a class="btn primary" href="#projects">View Projects</a>
-          <a class="btn ghost" href="#contact">Get in Touch</a>
-        <!-- </div>
-        <div class="kpis">
-          <div class="kpi"><b>15+</b> ML models in prod</div>
-          <div class="kpi"><b>30%</b> churn drop achieved</div>
-          <div class="kpi"><b>5TB</b> data wrangled</div>
-        </div>
-      </div> -->
-      <div class="hero-card">
-        <h3 style="margin-top:0">What I do</h3>
-        <div class="badges">
-          <span class="badge">Predictive Modeling</span>
-          <span class="badge">MLOps</span>
-          <span class="badge">Experimentation</span>
-          <span class="badge">Dashboarding</span>
-          <span class="badge">NLP & LLMs</span>
-          <span class="badge">Time Series</span>
-        </div>
+        <h4>Data Science Intern</h4>
+        <p>Worked on ML models, EDA, and deployment.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- About -->
-  <section id="about" class="container">
-    <div class="section-title">
-      <h2>About</h2>
-      <div class="section-sub">Who I am & how I work</div>
+<hr class="section-break">
+
+<!-- ========================================================= -->
+<!-- ======================= CONTACT ======================== -->
+<!-- ========================================================= -->
+<section id="contact" class="container">
+  <div class="section-title">
+    <h2>Contact</h2>
+  </div>
+
+  <div class="contact">
+    <div class="card">
+      <p>Email: you@example.com</p>
+      <p>GitHub: github.com/yourname</p>
     </div>
-    <div class="about">
-      <div class="card">
-        <h3>Hi, I'm <span style="white-space:nowrap">Viswanath Gadde</span> 👋</h3>
-        <p>
-          I’m an aspiring Data Scientist who enjoys building practical machine learning projects from start to finish. My work includes cleaning and analyzing data, developing ML models, and deploying them so they can be used in real life. I focus on creating simple, effective solutions and presenting insights in a way that anyone can understand.
-        </p>
-        <ul>
-          <li>🎓 Pursuing B.Tech in Data Science, Statistics, or related field</li>
-          <li>🏗️ End-to-end: data → model → deployment</li>
-          <li>🤝 Collaborative, experiment-driven, impact-focused</li>
-        </ul>
-      <!-- </div>
-      <div class="card">
-        <h3>Highlights</h3>
-        <ul>
-          <li><b>Credit risk model</b> cutting default rate by 12%</li>
-          <li><b>Churn early-warning</b> system raising retention +7pp</li>
-          <li><b>LLM-powered QA</b> bot saving 250+ support hours/month</li>
-        </ul>
-      </div>
-    </div> -->
-  </section>
+  </div>
+</section>
 
-  <!-- Skills -->
-  <section id="skills" class="container">
-    <div class="section-title">
-      <h2>Skills</h2>
-      <div class="section-sub">Tools I reach for</div>
-    </div>
-    <div class="skills-grid">
-      <div class="skill">Python · Pandas · NumPy</div>
-      <div class="skill">Scikit-learn · XGBoost</div>
-      <div class="skill">TensorFlow · PyTorch</div>
-      <div class="skill">SQL · PostgreSQL · BigQuery</div>
-      <div class="skill">Spark · Airflow</div>
-      <div class="skill">Docker · FastAPI</div>
-      <div class="skill">Tableau · Power BI</div>
-      <div class="skill">Git · Linux</div>
-    </div>
-  </section>
+<footer>
+  © <span id="year"></span> Viswanath Gadde
+</footer>
 
-  <!-- Projects -->
-  <section id="projects" class="container">
-    <div class="section-title">
-      <h2>Projects</h2>
-      <div class="section-sub">Selected work with real impact</div>
-    </div>
+<!-- ===================== SCRIPT ===================== -->
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 
-    <div class="filters">
-      <button class="active" data-filter="all">All</button>
-      <button data-filter="ml">ML</button>
-      <button data-filter="nlp">NLP</button>
-      <button data-filter="timeseries">Time Series</button>
-      <button data-filter="viz">Visualization</button>
-    </div>
-
-    <div class="projects" id="projectGrid">
-      <!-- Project 1 -->
-      <article class="project" data-tags="ml viz">
-        <div class="thumb"></div>
-        <div class="body">
-          <h3>Loan Default Prediction</h3>
-          <p>Risk scoring using Logistic Regression & XGBoost; calibrated thresholds for cost-sensitive decisions.</p>
-          <div class="badges">
-            <span class="badge">Python</span><span class="badge">XGBoost</span><span class="badge">ROC-AUC 0.86</span>
-          </div>
-        </div>
-        <div class="meta">
-          <span class="pill">ML</span>
-          <a href="#" title="Case Study">Case Study →</a>
-        </div>
-      </article>
-
-      <!-- Project 2 -->
-      <article class="project" data-tags="nlp ml">
-        <div class="thumb"></div>
-        <div class="body">
-          <h3>LLM Support Assistant</h3>
-          <p>Retrieval-augmented QA bot over product docs, reducing agent load by 35%.</p>
-          <div class="badges">
-            <span class="badge">PyTorch</span><span class="badge">RAG</span><span class="badge">FastAPI</span>
-          </div>
-        </div>
-        <div class="meta">
-          <span class="pill">NLP</span>
-          <a href="#">Demo →</a>
-        </div>
-      </article>
-
-      <!-- Project 3 -->
-      <article class="project" data-tags="timeseries ml viz">
-        <div class="thumb"></div>
-        <div class="body">
-          <h3>Demand Forecasting</h3>
-          <p>Hybrid Prophet + LSTM pipeline with promo/holiday features; improved MAPE by 18%.</p>
-          <div class="badges">
-            <span class="badge">LSTM</span><span class="badge">Prophet</span><span class="badge">Airflow</span>
-          </div>
-        </div>
-        <div class="meta">
-          <span class="pill">Time Series</span>
-          <a href="#">Notebook →</a>
-        </div>
-      </article>
-
-      <!-- Project 4 -->
-      <article class="project" data-tags="viz ml">
-        <div class="thumb"></div>
-        <div class="body">
-          <h3>Customer 360 Dashboard</h3>
-          <p>Executive dashboard with segmentation, LTV, and churn drilldowns powering retention playbooks.</p>
-          <div class="badges">
-            <span class="badge">Tableau</span><span class="badge">SQL</span><span class="badge">dbt</span>
-          </div>
-        </div>
-        <div class="meta">
-          <span class="pill">Visualization</span>
-          <a href="#">Live Dashboard →</a>
-        </div>
-      </article>
-
-      <!-- Project 5 -->
-      <article class="project" data-tags="ml">
-        <div class="thumb"></div>
-        <div class="body">
-          <h3>Real-Time Fraud Detection</h3>
-          <p>Streaming features + online learning to flag anomalous transactions in under 200ms.</p>
-          <div class="badges">
-            <span class="badge">Kafka</span><span class="badge">Scikit-learn</span><span class="badge">Docker</span>
-          </div>
-        </div>
-        <div class="meta">
-          <span class="pill">ML</span>
-          <a href="#">Architecture →</a>
-        </div>
-      </article>
-
-      <!-- Project 6 -->
-      <article class="project" data-tags="nlp">
-        <div class="thumb"></div>
-        <div class="body">
-          <h3>Topic Modeling for Reviews</h3>
-          <p>BERTopic pipeline surfacing themes & sentiment from 100k e‑commerce reviews.</p>
-          <div class="badges">
-            <span class="badge">BERTopic</span><span class="badge">UMAP</span><span class="badge">HDBSCAN</span>
-          </div>
-        </div>
-        <div class="meta">
-          <span class="pill">NLP</span>
-          <a href="#">Report →</a>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- Experience -->
-  <section id="experience" class="container">
-    <div class="section-title">
-      <h2>Experience</h2>
-      <div class="section-sub">Where I've built and learned</div>
-    </div>
-    <div class="timeline">
-      <div class="item">
-        <div class="when">2023–Now</div>
-        <div class="what">
-          <h4>Senior Data Scientist · FintechCo</h4>
-          <p>Lead credit risk modeling and experimentation. Shipped models to production with CI/CD and monitoring.</p>
-          <ul>
-            <li>Designed PD/LGD models with SHAP explainability</li>
-            <li>Cut approval-time by 40% via feature store</li>
-          </ul>
-        </div>
-      </div>
-      <div class="item">
-        <div class="when">2021–2023</div>
-        <div class="what">
-          <h4>Data Scientist · RetailCorp</h4>
-          <p>Owned demand forecasting and promo optimization across categories.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="container">
-    <div class="section-title">
-      <h2>Contact</h2>
-      <div class="section-sub">Let's collaborate</div>
-    </div>
-    <div class="contact">
-      <div class="card">
-        <h3>Reach me</h3>
-        <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
-        <p>LinkedIn: <a href="#">linkedin.com/in/yourname</a></p>
-        <p>GitHub: <a href="#">github.com/yourname</a></p>
-      </div>
-      <div class="card">
-        <h3>Newsletter (optional)</h3>
-        <p>Share experiments, tech notes, and case studies every month.</p>
-        <form onsubmit="event.preventDefault(); alert('Thanks! This is a static template — hook this up to your provider.');">
-          <input aria-label="Email" type="email" placeholder="your@email.com" required style="padding:10px 12px;border:1px solid var(--border);border-radius:10px;width:65%" />
-          <button class="btn primary" type="submit">Subscribe</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    © <span id="year"></span> Your Name · Built with clean HTML/CSS/JS
-  </footer>
-
-  <script>
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Project filters
-    const buttons=[...document.querySelectorAll('.filters button')];
-    const cards=[...document.querySelectorAll('.project')];
-    buttons.forEach(btn=>btn.addEventListener('click',()=>{
-      buttons.forEach(b=>b.classList.remove('active'));
-      btn.classList.add('active');
-      const tag=btn.dataset.filter;
-      cards.forEach(c=>{
-        if(tag==='all' || (c.dataset.tags||'').includes(tag)){
-          c.style.display='flex';
-        }else{ c.style.display='none'; }
-      })
-    }))
-  </script>
 </body>
 </html>
