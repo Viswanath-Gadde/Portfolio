@@ -6,6 +6,34 @@
   <title>Data Scientist Portfolio – Viswanath Gadde</title>
   <meta name="description" content="Portfolio of a Data Scientist: projects, skills, experience, and contact." />
   <style>
+
+
+.profile-photo img {
+  width: 100%;              /* zoom image */
+  height: 200%;
+  border-radius: 50%;       /* perfect circle */
+  object-fit: cover;
+  object-position: 45% center; /* face slightly left */
+
+  /* one-side soft shadow + glow */
+  box-shadow:
+    12px 18px 30px rgba(0, 0, 0, 0.25),   /* main shadow */
+    0 0 35px rgba(99, 102, 241, 0.35);    /* subtle radiant glow */
+
+  animation: float 4s ease-in-out infinite;
+}
+
+/* floating animation */
+@keyframes float {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+
+
+
+
     :root{
       --bg:#ffffff;
       --bg-alt:#f7f9fc;
@@ -52,6 +80,8 @@
     .section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
     .section-title h2{margin:0;font-size:28px}
     .section-sub{color:var(--muted)}
+    
+
 
     /* About */
     .about{display:grid;grid-template-columns:1fr 1fr;gap:20px}
@@ -132,55 +162,58 @@
         <div class="cta">
           <a class="btn primary" href="#projects">View Projects</a>
           <a class="btn ghost" href="#contact">Get in Touch</a>
-        <!-- </div>
+        </div>
         <div class="kpis">
           <div class="kpi"><b>15+</b> ML models in prod</div>
           <div class="kpi"><b>30%</b> churn drop achieved</div>
           <div class="kpi"><b>5TB</b> data wrangled</div>
         </div>
-      </div> -->
+      </div>
+      <div class="profile-photo">
+  <img src="viswa.png" alt="Viswanath Gadde">
+</div>
+
       <div class="hero-card">
         <h3 style="margin-top:0">What I do</h3>
         <div class="badges">
-          <span class="badge">Predictive Modeling</span>
+          <!-- <span class="badge">Predictive Modeling</span>
           <span class="badge">MLOps</span>
           <span class="badge">Experimentation</span>
           <span class="badge">Dashboarding</span>
           <span class="badge">NLP & LLMs</span>
-          <span class="badge">Time Series</span>
+          <span class="badge">Time Series</span> -->
+          <span class="badge">Predictive Modeling</span>
+          <span class="badge">Exploratory Data Analysis</span>
+          <span class="badge">Hypothesis Testing</span>
+          <span class="badge">Dashboards</span>
+          
         </div>
       </div>
     </div>
   </section>
 
-  <!-- About -->
-  <section id="about" class="container">
+
+<section id="about" class="about-section">
+  <div class="container">
     <div class="section-title">
       <h2>About</h2>
       <div class="section-sub">Who I am & how I work</div>
     </div>
-    <div class="about">
-      <div class="card">
-        <h3>Hi, I'm <span style="white-space:nowrap">Viswanath Gadde</span> 👋</h3>
-        <p>
-          I’m an aspiring Data Scientist who enjoys building practical machine learning projects from start to finish. My work includes cleaning and analyzing data, developing ML models, and deploying them so they can be used in real life. I focus on creating simple, effective solutions and presenting insights in a way that anyone can understand.
-        </p>
-        <ul>
-          <li>🎓 Pursuing B.Tech in Data Science, Statistics, or related field</li>
-          <li>🏗️ End-to-end: data → model → deployment</li>
-          <li>🤝 Collaborative, experiment-driven, impact-focused</li>
-        </ul>
-      <!-- </div>
-      <div class="card">
-        <h3>Highlights</h3>
-        <ul>
-          <li><b>Credit risk model</b> cutting default rate by 12%</li>
-          <li><b>Churn early-warning</b> system raising retention +7pp</li>
-          <li><b>LLM-powered QA</b> bot saving 250+ support hours/month</li>
-        </ul>
-      </div>
-    </div> -->
-  </section>
+
+    <div class="about-content">
+      <h3>Hi, I'm <span style="white-space:nowrap">Viswanath Gadde</span> 👋</h3>
+      <p>
+        I’m an aspiring Data Scientist who enjoys building practical machine learning projects from start to finish...
+      </p>
+      <ul>
+        <li>🎓 Pursuing B.Tech CSE (AI & DS)</li>
+        <li>🏗️ End-to-end: data → model → deployment</li>
+        <li>🤝 Collaborative, experiment-driven, impact-focused</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 
   <!-- Skills -->
   <section id="skills" class="container">
@@ -192,11 +225,12 @@
       <div class="skill">Python · Pandas · NumPy</div>
       <div class="skill">Scikit-learn · XGBoost</div>
       <div class="skill">TensorFlow · PyTorch</div>
-      <div class="skill">SQL · PostgreSQL · BigQuery</div>
-      <div class="skill">Spark · Airflow</div>
-      <div class="skill">Docker · FastAPI</div>
+      <div class="skill">MySQL · PostgreSQL</div>
+      <!-- <div class="skill">Spark · Airflow</div> -->
+      <!-- <div class="skill">Docker · FastAPI</div> -->
       <div class="skill">Tableau · Power BI</div>
-      <div class="skill">Git · Linux</div>
+      <div class="skill">Excel</div>
+      <div class="skill">Git</div>
     </div>
   </section>
 
@@ -211,13 +245,128 @@
       <button class="active" data-filter="all">All</button>
       <button data-filter="ml">ML</button>
       <button data-filter="nlp">NLP</button>
-      <button data-filter="timeseries">Time Series</button>
+      <!-- <button data-filter="timeseries">Time Series</button> -->
+       <button data-filter="n2n">End-to-end</button>
       <button data-filter="viz">Visualization</button>
+      <button data-filter="eda">EDA</button>
     </div>
 
     <div class="projects" id="projectGrid">
+       <article class="project" data-tags="viz">
+        <div class="thumb"></div>
+        <div class="body">
+          <h3>HR Analytics Dashboard</h3>
+          <p>Interactive HR Analytics Dashboard summarizing workforce size, attrition rate, and key attrition trends by age, salary, education, job role, and tenure.</p>
+          <div class="badges">
+            <span class="badge">Power BI</span>
+          </div>
+        </div>
+        <div class="meta">
+          <span class="pill">Visualization</span>
+          <a href="https://github.com/Viswanath-Gadde/Projects-on-Power-BI" target="_blank" >Live Dashboard →</a>
+        </div>
+      </article>
+      <article class="project" data-tags="viz">
+        <div class="thumb"></div>
+        <div class="body">
+          <h3>Sales Analysis Dashboard</h3>
+          <p>An interactive Excel Sales Analysis dashboard (2014–2017) showing total sales, quantity, profits, and trends by category, year, and shipping mode.</p>
+          <div class="badges">
+            <span class="badge">Excel</span>
+          </div>
+        </div>
+        <div class="meta">
+          <span class="pill">Visualization</span>
+          <a href="https://github.com/Viswanath-Gadde/Projects-on-EXCEL" target="_blank" >Live Dashboard →</a>
+        </div>
+      </article>
+      <article class="project" data-tags="ml viz n2n">
+        <div class="thumb"></div>
+        <div class="body">
+          <h3>Electric Power Consumption Prediction (N2N)</h3>
+          <p>Prediction of electric power consumption across three different zones using weather data and engineered timestamp features.</p>
+          <div class="badges">
+            <span class="badge">Python</span><span class="badge">Scikit-learn</span><span class="badge">Streamlit</span>
+          </div>
+        </div>
+        <div class="meta">
+          <span class="pill">ML</span>
+          <a href="https://github.com/Viswanath-Gadde/Edunet-Intern-Project-Electric-Power-Consumption-Prediction" target="_blank" >Full Project →</a>
+        </div>
+      </article>
+      <article class="project" data-tags="nlp n2n">
+        <div class="thumb"></div>
+        <div class="body">
+          <h3>News Recommendation System (N2N)</h3>
+          <p>Built a content-based NLP recommendation system using TF-IDF and cosine similarity to suggest relevant news articles based on user input text.</p>
+          <div class="badges">
+            <span class="badge">Python</span><span class="badge">Flask</span>
+          </div>
+        </div>
+        <div class="meta">
+          <span class="pill">NLP</span>
+          <a href="https://github.com/Viswanath-Gadde/News-Recommendation" target="_blank" >Full Project →</a>
+        </div>
+      </article>
+       <article class="project" data-tags="ml">
+        <div class="thumb"></div>
+        <div class="body">
+          <h3>Rock Mine Prediction</h3>
+          <p>Built a Logistic Regression model to classify sonar signals as Rock or Mine with 85% accuracy.</p>
+          <div class="badges">
+            <span class="badge">Python</span><span class="badge">Scikit-learn</span>
+          </div>
+        </div>
+        <div class="meta">
+          <span class="pill">ML</span>
+          <a href="https://github.com/Viswanath-Gadde/Rock-Mine-Prediction" target="_blank" >NoteBook →</a>
+        </div>
+      </article>
+        <article class="project" data-tags="ml viz n2n">
+        <div class="thumb"></div>
+        <div class="body">
+          <h3>Titanic Survival Prediction (N2N)</h3>
+          <p>After training and evaluating multiple models, the Random Forest Classifier was selected as the best-performing model, achieving an accuracy of 82%</p>
+          <div class="badges">
+            <span class="badge">Python</span><span class="badge">Scikit-learn</span><span class="badge">Streamlit</span>
+          </div>
+        </div>
+        <div class="meta">
+          <span class="pill">ML</span>
+          <a href="https://github.com/Viswanath-Gadde/Titanic-Survival-Prediction" target="_blank" >Full Project →</a>
+        </div>
+      </article>
+      <article class="project" data-tags="viz eda">
+        <div class="thumb"></div>
+        <div class="body">
+          <h3>Bank Marketing Campaign Analysis</h3>
+          <p>Performed exploratory data analysis (EDA) on bank campaign data to uncover customer behavior patterns and factors influencing campaign success.</p>
+          <div class="badges">
+            <span class="badge">Python</span><span class="badge">Matplotlib</span><span class="badge">Seaborn</span>
+          </div>
+        </div>
+        <div class="meta">
+          <span class="pill">EDA</span><span class="pill">Visualization</span>
+          <a href="https://github.com/Viswanath-Gadde/bank_eda_analysis" target="_blank" >NoteBook →</a>
+        </div>
+      </article>
+      <article class="project" data-tags="viz eda">
+        <div class="thumb"></div>
+        <div class="body">
+          <h3>Loan Risk Analysis</h3>
+          <p>Analyzed borrower and loan data to uncover key risk factors, helping financial institutions improve lending decisions and risk management strategies.</p>
+          <div class="badges">
+            <span class="badge">Python</span><span class="badge">Matplotlib</span><span class="badge">Seaborn</span>
+          </div>
+        </div>
+        <div class="meta">
+          <span class="pill">EDA</span><span class="pill">Visualization</span>
+          <a href="https://github.com/Viswanath-Gadde/eda-assigment-on-loan/blob/main/loan_eda_assignment.ipynb" target="_blank" >NoteBook →</a>
+        </div>
+      </article>
+      
       <!-- Project 1 -->
-      <article class="project" data-tags="ml viz">
+      <!-- <article class="project" data-tags="ml viz">
         <div class="thumb"></div>
         <div class="body">
           <h3>Loan Default Prediction</h3>
@@ -230,10 +379,11 @@
           <span class="pill">ML</span>
           <a href="#" title="Case Study">Case Study →</a>
         </div>
-      </article>
+      </article> -->
+
 
       <!-- Project 2 -->
-      <article class="project" data-tags="nlp ml">
+      <!-- <article class="project" data-tags="nlp ml">
         <div class="thumb"></div>
         <div class="body">
           <h3>LLM Support Assistant</h3>
@@ -246,10 +396,10 @@
           <span class="pill">NLP</span>
           <a href="#">Demo →</a>
         </div>
-      </article>
+      </article> -->
 
       <!-- Project 3 -->
-      <article class="project" data-tags="timeseries ml viz">
+      <!-- <article class="project" data-tags="timeseries ml viz">
         <div class="thumb"></div>
         <div class="body">
           <h3>Demand Forecasting</h3>
@@ -262,10 +412,10 @@
           <span class="pill">Time Series</span>
           <a href="#">Notebook →</a>
         </div>
-      </article>
+      </article> -->
 
       <!-- Project 4 -->
-      <article class="project" data-tags="viz ml">
+      <!-- <article class="project" data-tags="viz ml">
         <div class="thumb"></div>
         <div class="body">
           <h3>Customer 360 Dashboard</h3>
@@ -278,10 +428,10 @@
           <span class="pill">Visualization</span>
           <a href="#">Live Dashboard →</a>
         </div>
-      </article>
+      </article> -->
 
       <!-- Project 5 -->
-      <article class="project" data-tags="ml">
+      <!-- <article class="project" data-tags="ml">
         <div class="thumb"></div>
         <div class="body">
           <h3>Real-Time Fraud Detection</h3>
@@ -294,10 +444,10 @@
           <span class="pill">ML</span>
           <a href="#">Architecture →</a>
         </div>
-      </article>
+      </article> -->
 
       <!-- Project 6 -->
-      <article class="project" data-tags="nlp">
+      <!-- <article class="project" data-tags="nlp">
         <div class="thumb"></div>
         <div class="body">
           <h3>Topic Modeling for Reviews</h3>
@@ -311,7 +461,7 @@
           <a href="#">Report →</a>
         </div>
       </article>
-    </div>
+    </div> -->
   </section>
 
   <!-- Experience -->
@@ -322,23 +472,23 @@
     </div>
     <div class="timeline">
       <div class="item">
-        <div class="when">2023–Now</div>
+        <div class="when">2025-Oct</div>
         <div class="what">
-          <h4>Senior Data Scientist · FintechCo</h4>
-          <p>Lead credit risk modeling and experimentation. Shipped models to production with CI/CD and monitoring.</p>
+          <h4>AI and Data Analytics Intern · AICTE, Edunet & Shell (Skills4Future Program)</h4>
+          <p>Worked on guided project to predict Electric Power Consumption on three sites</p>
           <ul>
-            <li>Designed PD/LGD models with SHAP explainability</li>
-            <li>Cut approval-time by 40% via feature store</li>
+            <li>Designed Multi-Output Regression model </li>
+            <li>Achieving 99% R2 Score</li>
           </ul>
         </div>
       </div>
-      <div class="item">
+      <!-- <div class="item">
         <div class="when">2021–2023</div>
         <div class="what">
           <h4>Data Scientist · RetailCorp</h4>
           <p>Owned demand forecasting and promo optimization across categories.</p>
         </div>
-      </div>
+      </div> -->
     </div>
   </section>
 
@@ -351,23 +501,43 @@
     <div class="contact">
       <div class="card">
         <h3>Reach me</h3>
-        <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
-        <p>LinkedIn: <a href="#">linkedin.com/in/yourname</a></p>
-        <p>GitHub: <a href="#">github.com/yourname</a></p>
+        <p>
+          Email:
+          <a href="mailto:gaddeviswanath628@gmail.com"
+            target="_blank" rel="noopener noreferrer">
+            Send Email
+          </a>
+          <p>
+          LinkedIn:
+          <a href="https://www.linkedin.com/in/viswanath-gadde-77635730b/"
+            target="_blank" rel="noopener noreferrer">
+            View Profile
+          </a>
+        </p>
+
+        <p>
+          GitHub:
+          <a href="https://github.com/Viswanath-Gadde"
+            target="_blank" rel="noopener noreferrer">
+            View Repositories
+          </a>
+        </p> 
+        </p>
+
       </div>
-      <div class="card">
+      <!-- <div class="card">
         <h3>Newsletter (optional)</h3>
         <p>Share experiments, tech notes, and case studies every month.</p>
         <form onsubmit="event.preventDefault(); alert('Thanks! This is a static template — hook this up to your provider.');">
           <input aria-label="Email" type="email" placeholder="your@email.com" required style="padding:10px 12px;border:1px solid var(--border);border-radius:10px;width:65%" />
           <button class="btn primary" type="submit">Subscribe</button>
         </form>
-      </div>
+      </div> -->
     </div>
   </section>
 
   <footer>
-    © <span id="year"></span> Your Name · Built with clean HTML/CSS/JS
+    © <span id="year"></span> Viswanath Gadde · Enjoy turning raw data into powerful insights!
   </footer>
 
   <script>
